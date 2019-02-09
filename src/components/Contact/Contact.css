@@ -1,0 +1,65 @@
+.Contact--container {
+  position: relative;
+  right: 80px;
+  height: 100%;
+  width: 105%;
+  background-color: #fcfcfc;
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16pt;
+  line-height: 1.375;
+  letter-spacing: 1px;
+  word-wrap: overflow;
+  border-radius: 25px;
+  padding: 20px 30px 20px;
+  display: grid;
+  grid-template-areas:
+    "profilePic    links   phone"
+    "profilePic    form    form"
+    "info          form    form";
+  grid-gap: 10px;
+  grid-template-columns: 820px auto;
+}
+
+.Contact--profilePic {
+  grid-area: profilePic;
+}
+
+.Contact--info {
+  grid-area: info;
+  position: relative;
+  bottom: 25px;
+  padding-right: 40px;
+}
+
+.Contact--links {
+  grid-area: links;
+}
+
+.Contact--phone {
+  grid-area: phone;
+}
+
+.Contact--form {
+  grid-area: form;
+}
+
+.Contact--links--columns {
+  display: flex;
+  flex-direction: row;
+}
+
+.Contact--links--list {
+  width: 150px;
+}
+
+.firstColumn {
+  order: 1;
+}
+.secondColumn {
+  order: 2;
+}
+
+.Contact--links--header {
+  padding-left: 30px;
+}
