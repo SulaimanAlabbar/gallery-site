@@ -1,4 +1,2 @@
 /node_modules/
-/src/components/About/images/
-/src/components/Contact/Guy.jpg
-/src/components/Gallery/images/
+/.env

@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import ImageModal from "../ImageModal";
 import Form from "../Form";
 import "./Contact.css";
-import IMG0 from "./Guy.jpg";
 
 export default class Contact extends Component {
   _mounted = false;
@@ -42,7 +41,15 @@ export default class Contact extends Component {
     return (
       <div className="Contact--container">
         <div className="Contact--profilePic">
-          <img src={IMG0} alt="hah" onClick={() => this.handleClick(IMG0)} />
+          <img
+            src={`${process.env.REACT_APP_IMAGES_URL}contact_img01.jpg`}
+            alt="contact_img01"
+            onClick={() =>
+              this.handleClick(
+                `${process.env.REACT_APP_IMAGES_URL}contact_img01.jpg`
+              )
+            }
+          />
         </div>
         <div className="Contact--info">
           <h2>Lorem ipsum dolor sit amet.</h2>

@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import ImageModal from "../ImageModal";
 import "./About.css";
 
-import IMG0 from "./images/about00.jpg";
-import IMG1 from "./images/about01.jpg";
-import IMG2 from "./images/about02.jpg";
-
 export default class About extends Component {
   _mounted = false;
 
@@ -44,12 +40,16 @@ export default class About extends Component {
       <div className="About--container">
         <h1 className="About--header">Lorem ipsum dolor sit amet</h1>
         <img
-          src={IMG0}
-          alt="qwewe"
+          src={`${process.env.REACT_APP_IMAGES_URL}about_img01.jpg`}
+          alt="about_img01"
           width="1280"
           height="720"
           className="image0"
-          onClick={() => this.handleClick(IMG0)}
+          onClick={() =>
+            this.handleClick(
+              `${process.env.REACT_APP_IMAGES_URL}about_img01.jpg`
+            )
+          }
         />
         <br />
         <br />
@@ -73,10 +73,14 @@ export default class About extends Component {
           dolor in, voluptates voluptatum?
         </p>
         <img
-          src={IMG1}
-          alt="pic1"
+          src={`${process.env.REACT_APP_IMAGES_URL}about_img02.jpg`}
+          alt="about_img02"
           className="image1"
-          onClick={() => this.handleClick(IMG1)}
+          onClick={() =>
+            this.handleClick(
+              `${process.env.REACT_APP_IMAGES_URL}about_img02.jpg`
+            )
+          }
         />
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. At
@@ -141,10 +145,14 @@ export default class About extends Component {
           necessitatibus labore delectus quam inventore fugiat debitis.
         </p>
         <img
-          src={IMG2}
-          alt="pic2"
+          src={`${process.env.REACT_APP_IMAGES_URL}about_img03.jpg`}
+          alt="about_img03"
           className="image2"
-          onClick={() => this.handleClick(IMG2)}
+          onClick={() =>
+            this.handleClick(
+              `${process.env.REACT_APP_IMAGES_URL}about_img03.jpg`
+            )
+          }
         />
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae

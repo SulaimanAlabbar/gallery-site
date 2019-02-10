@@ -6,7 +6,7 @@ export default function GalleryImage({ image, handleClick }) {
     <Suspense fallback={<Spinner />}>
       <img
         src={image}
-        alt="ha"
+        alt={`${image}`}
         width="403"
         height="227"
         onClick={() => handleClick(image)}

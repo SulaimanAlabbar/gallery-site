@@ -26,7 +26,7 @@ export default class ImageModal extends Component {
       <>
         <img
           src={image}
-          alt="modal"
+          alt={`${image}`}
           className={`ImageModal--modal${
             modalClose ? " ImageModal--modal--close" : ""
           }`}
@@ -37,6 +37,14 @@ export default class ImageModal extends Component {
           }`}
           onClick={this.handleModalClose}
         />
+        <div
+          onClick={this.handleModalClose}
+          className={`ImageModal--closeModal${
+            modalClose ? " ImageModal--closeModal--close" : ""
+          }`}
+        >
+          X
+        </div>
       </>
     );
   }

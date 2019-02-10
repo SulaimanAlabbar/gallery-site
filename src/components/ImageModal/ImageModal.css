@@ -21,11 +21,28 @@
   animation: fadeIn 0.4s;
 }
 
-.ImageModal--modal--close {
-  animation: fadeOut 0.4s;
+.ImageModal--closeModal {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  /* left: 50%; */
+  right: 1%;
+  top: 8%;
+  z-index: 30;
+  /* background-color: yellow; */
+  color: white;
+  font-size: 64px;
+  font-weight: bold;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  animation: fadeIn 0.4s;
+  cursor: pointer;
 }
 
-.ImageModal--shade--close {
+.ImageModal--modal--close,
+.ImageModal--shade--close,
+.ImageModal--closeModal--close {
   animation: fadeOut 0.4s;
 }
 
