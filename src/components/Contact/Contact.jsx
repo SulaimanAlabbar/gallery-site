@@ -11,7 +11,7 @@ export default class Contact extends Component {
     selectedImage: false
   };
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
     this._mounted = true;
   };
 

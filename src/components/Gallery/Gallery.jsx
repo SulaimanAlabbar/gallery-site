@@ -8,10 +8,19 @@ import "./Gallery.css";
 
 const imageArray = [];
 
-for (let i = 1; i < 37; i++) {
-  imageArray.push(
-    `${process.env.REACT_APP_IMAGES_URL}gallery_img${i < 10 ? "0" + i : i}.jpg`
-  );
+for (
+  let i = 1;
+  i < Number(process.env.REACT_APP_NUM_OF_GALLERY_IMAGES) + 1;
+  i++
+) {
+  imageArray.push([
+    `${process.env.REACT_APP_IMAGES_URL}gallery_img${
+      i < 10 ? "0" + i : i
+    }_full_large.jpg`,
+    `${process.env.REACT_APP_IMAGES_URL}gallery_img${
+      i < 10 ? "0" + i : i
+    }_thumbnail_large.jpg`
+  ]);
 }
 
 class Gallery extends Component {
@@ -29,11 +38,11 @@ class Gallery extends Component {
     this._mounted = false;
   };
 
-  handleClick = image => {
+  handleClick = imageIndex => {
     if (!this._mounted) return;
 
     this.setState({
-      selectedImage: image
+      selectedImage: imageArray[imageIndex]
     });
   };
 
@@ -50,15 +59,19 @@ class Gallery extends Component {
 
     return (
       <div className="Gallery--container">
-        {imageArray.map(image => (
+        {imageArray.map((image, index) => (
           <GalleryImage
-            image={image}
+            image={image[1]}
+            imageIndex={index}
             handleClick={this.handleClick}
-            key={`${image}`}
+            key={`${image[1]}`}
           />
         ))}
         {selectedImage && (
-          <ImageModal image={selectedImage} onModalClose={this.onModalClose} />
+          <ImageModal
+            image={selectedImage[0]}
+            onModalClose={this.onModalClose}
+          />
         )}
       </div>
     );

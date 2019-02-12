@@ -1,15 +1,15 @@
 import React, { Suspense } from "react";
 import Spinner from "../Spinner";
 
-export default function GalleryImage({ image, handleClick }) {
+export default function GalleryImage({ image, imageIndex, handleClick }) {
   return (
     <Suspense fallback={<Spinner />}>
       <img
         src={image}
         alt={`${image}`}
-        width="403"
-        height="227"
-        onClick={() => handleClick(image)}
+        width="384"
+        height="216"
+        onClick={() => handleClick(imageIndex)}
         className="Gallery--image"
       />
     </Suspense>
