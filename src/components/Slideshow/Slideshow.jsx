@@ -40,48 +40,44 @@ class Slideshow extends Component {
     exitedFullScreen: false
   };
 
-  componentDidMount = () => {
-    openFullscreen();
-    document.addEventListener(
-      "fullscreenchange",
-      this.onFullScreenChange,
-      false
-    );
-    document.addEventListener(
-      "webkitfullscreenchange",
-      this.onFullScreenChange,
-      false
-    );
-    document.addEventListener(
-      "mozfullscreenchange",
-      this.onFullScreenChange,
-      false
-    );
-  };
+  // componentDidMount = () => {
+  //   openFullscreen();
+  //   document.addEventListener(
+  //     "fullscreenchange",
+  //     this.onFullScreenChange,
+  //     false
+  //   );
+  //   document.addEventListener(
+  //     "webkitfullscreenchange",
+  //     this.onFullScreenChange,
+  //     false
+  //   );
+  //   document.addEventListener(
+  //     "mozfullscreenchange",
+  //     this.onFullScreenChange,
+  //     false
+  //   );
+  // };
 
-  componentWillUnmount = () => {
-    if (!window.screenTop && !window.screenY) {
-      closeFullscreen();
-    }
-    document.removeEventListener(
-      "fullscreenchange",
-      this.onFullScreenChange,
-      false
-    );
-    document.removeEventListener(
-      "webkitfullscreenchange",
-      this.onFullScreenChange,
-      false
-    );
-    document.removeEventListener(
-      "mozfullscreenchange",
-      this.onFullScreenChange,
-      false
-    );
-  };
-
-  // componentDidUpdate = (prevProps, prevState) => {
-  //   console.log("UPDATED");
+  // componentWillUnmount = () => {
+  //   if (!window.screenTop && !window.screenY) {
+  //     closeFullscreen();
+  //   }
+  //   document.removeEventListener(
+  //     "fullscreenchange",
+  //     this.onFullScreenChange,
+  //     false
+  //   );
+  //   document.removeEventListener(
+  //     "webkitfullscreenchange",
+  //     this.onFullScreenChange,
+  //     false
+  //   );
+  //   document.removeEventListener(
+  //     "mozfullscreenchange",
+  //     this.onFullScreenChange,
+  //     false
+  //   );
   // };
 
   onFullScreenChange = () => {
@@ -99,14 +95,14 @@ class Slideshow extends Component {
   };
 
   render() {
-    const { exitedFullScreen } = this.state;
+    // const { exitedFullScreen } = this.state;
 
-    if (exitedFullScreen) {
-      console.log("LINK");
-      return <Link to="/" />;
-    }
+    // if (exitedFullScreen) {
+    //   console.log("LINK");
+    //   return <Link to="/" />;
+    // }
 
-    return <div className="Slideshow--container">Slideshow</div>;
+    return <div className="Slideshow--container">Slideshow coming soon...</div>;
   }
 }
 

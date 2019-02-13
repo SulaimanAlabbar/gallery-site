@@ -1,0 +1,18 @@
+.NextPrevImage {
+  font-size: 128px;
+  cursor: pointer;
+  position: fixed;
+  z-index: 13;
+  transform: translate(-50%, -50%);
+  animation: fadeIn 0.4s;
+}
+
+.NextPrevImage--next {
+  right: 10%;
+  top: 50%;
+}
+
+.NextPrevImage--prev {
+  left: 13.7%;
+  top: 50%;
+}

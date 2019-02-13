@@ -15,3 +15,5 @@ export default function GalleryImage({ image, imageIndex, handleClick }) {
     </Suspense>
   );
 }
+
+// TODO: Remove Suspense

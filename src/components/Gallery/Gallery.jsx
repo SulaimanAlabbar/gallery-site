@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import ImageModal from "../ImageModal";
 import GalleryImage from "../GalleryImage";
+import NextPrevImage from "../NextPrevImage";
 import "./Gallery.css";
 
 const imageArray = [];
@@ -13,21 +14,22 @@ for (
   i < Number(process.env.REACT_APP_NUM_OF_GALLERY_IMAGES) + 1;
   i++
 ) {
-  imageArray.push([
-    `${process.env.REACT_APP_IMAGES_URL}gallery_img${
+  imageArray.push({
+    full: `${process.env.REACT_APP_IMAGES_URL}gallery_img${
       i < 10 ? "0" + i : i
     }_full_large.jpg`,
-    `${process.env.REACT_APP_IMAGES_URL}gallery_img${
+    thumbnail: `${process.env.REACT_APP_IMAGES_URL}gallery_img${
       i < 10 ? "0" + i : i
     }_thumbnail_large.jpg`
-  ]);
+  });
 }
 
 class Gallery extends Component {
   _mounted = false;
 
   state = {
-    selectedImage: false
+    selectedImage: false,
+    selectedImageIndex: false
   };
 
   componentDidMount = () => {
@@ -42,7 +44,17 @@ class Gallery extends Component {
     if (!this._mounted) return;
 
     this.setState({
-      selectedImage: imageArray[imageIndex]
+      selectedImage: imageArray[imageIndex],
+      selectedImageIndex: imageIndex
+    });
+  };
+
+  changeModalImage = newImageIndex => {
+    if (!this._mounted) return;
+
+    this.setState({
+      selectedImage: imageArray[newImageIndex],
+      selectedImageIndex: newImageIndex
     });
   };
 
@@ -55,23 +67,29 @@ class Gallery extends Component {
   };
 
   render() {
-    const { selectedImage } = this.state;
+    const { selectedImage, selectedImageIndex } = this.state;
 
     return (
       <div className="Gallery--container">
         {imageArray.map((image, index) => (
           <GalleryImage
-            image={image[1]}
+            image={image.thumbnail}
             imageIndex={index}
             handleClick={this.handleClick}
-            key={`${image[1]}`}
+            key={`${image.thumbnail}`}
           />
         ))}
         {selectedImage && (
-          <ImageModal
-            image={selectedImage[0]}
-            onModalClose={this.onModalClose}
-          />
+          <>
+            <ImageModal
+              image={selectedImage.full}
+              onModalClose={this.onModalClose}
+            />
+            <NextPrevImage
+              imageIndex={selectedImageIndex}
+              changeModalImage={this.changeModalImage}
+            />
+          </>
         )}
       </div>
     );
