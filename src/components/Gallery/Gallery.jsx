@@ -83,6 +83,7 @@ class Gallery extends Component {
           <>
             <ImageModal
               image={selectedImage.full}
+              placeholderImage={selectedImage.thumbnail}
               onModalClose={this.onModalClose}
             />
             <NextPrevImage

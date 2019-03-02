@@ -221,7 +221,11 @@ export default class About extends Component {
           minima illum, rerum nihil fugit omnis.
         </p>
         {selectedImage && (
-          <ImageModal image={selectedImage} onModalClose={this.onModalClose} />
+          <ImageModal
+            image={selectedImage}
+            placeholderImage={false}
+            onModalClose={this.onModalClose}
+          />
         )}
       </div>
     );

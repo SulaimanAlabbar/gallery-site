@@ -32,3 +32,8 @@ code {
 .hidden {
   visibility: hidden;
 }
+
+.blur {
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+}

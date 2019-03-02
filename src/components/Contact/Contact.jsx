@@ -102,7 +102,11 @@ export default class Contact extends Component {
           <Form />
         </div>
         {selectedImage && (
-          <ImageModal image={selectedImage} onModalClose={this.onModalClose} />
+          <ImageModal
+            image={selectedImage}
+            placeholderImage={false}
+            onModalClose={this.onModalClose}
+          />
         )}
       </div>
     );

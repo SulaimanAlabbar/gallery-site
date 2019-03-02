@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Img from "react-image";
 import "./ImageModal.css";
 
 export default class ImageModal extends Component {
@@ -21,15 +22,28 @@ export default class ImageModal extends Component {
 
   render() {
     const { modalClose } = this.state;
-    const { image } = this.props;
+    const { image, placeholderImage } = this.props;
     return (
       <>
-        <img
+        <Img
           src={image}
           alt={`${image}`}
           className={`ImageModal--modal${
             modalClose ? " ImageModal--modal--close" : ""
           }`}
+          loader={
+            placeholderImage ? (
+              <img
+                src={placeholderImage}
+                alt={`${placeholderImage}`}
+                className={`ImageModal--modal${
+                  modalClose ? " ImageModal--modal--close" : ""
+                } blur`}
+              />
+            ) : (
+              <div />
+            )
+          }
         />
         <div
           className={`ImageModal--shade${
