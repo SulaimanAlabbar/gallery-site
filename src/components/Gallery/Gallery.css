@@ -6,21 +6,3 @@
   grid-gap: 1em;
   justify-content: space-around;
 }
-
-.Gallery--image {
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
-  border: 1px solid black;
-  border-radius: 5px;
-  border-style: inset;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-drag: none;
-  transform: scale(1);
-  opacity: 0.9;
-  transition: transform 0.25s;
-}
-
-.Gallery--image:hover {
-  transform: scale(1.05);
-  opacity: 1;
-}

@@ -8,6 +8,7 @@ import Slideshow from "../components/Slideshow";
 import About from "../components/About";
 import Contact from "../components/Contact";
 import "./MainPage.css";
+import "./mediaQueries.css";
 
 function App() {
   return (

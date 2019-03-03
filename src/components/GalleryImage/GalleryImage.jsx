@@ -1,14 +1,13 @@
 import React from "react";
+import "./GalleryImage.css";
 
 export default function GalleryImage({ image, imageIndex, handleClick }) {
   return (
     <img
       src={image}
       alt={`${image}`}
-      width="384"
-      height="216"
       onClick={() => handleClick(imageIndex)}
-      className="Gallery--image"
+      className="GalleryImage--image"
     />
   );
 }
