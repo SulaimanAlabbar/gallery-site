@@ -1,33 +1,27 @@
-.JumpToTop--container {
-  width: 100%;
-  color: white;
-  font-size: 64px;
+/* .JumpToTop--container {
+
   position: fixed;
   bottom: 80px;
-  left: 60px;
+
+  
+} */
+
+.JumpToTop--container {
+  position: fixed;
+  bottom: 80px;
+  width: auto;
+  max-width: 100px;
   cursor: pointer;
   user-select: none;
-
-  background-color: rgba(120, 200, 150, 0.5);
-  width: 50px;
-  height: 50px;
-  padding: 20px;
-  border-radius: 50%;
+  border: none !important;
+  box-shadow: 0 0 0;
   transition: background-color 0.1s, transform 0.2s;
 }
 
 .JumpToTop--container:hover {
-  background-color: rgba(120, 200, 150, 0.6);
   transform: translateY(10px);
 }
 
 .JumpToTop--container:active {
-  background-color: rgba(120, 200, 150, 0.7);
   transform: translateY(-5px);
-}
-
-.JumpToTop--arrow {
-  position: relative;
-  left: 8px;
-  bottom: 72px;
 }

@@ -1,7 +1,9 @@
 .ImageModal--modal {
   position: fixed;
-  width: 1280px;
-  height: 720px;
+  width: 70%;
+  height: auto;
+  max-width: 1280px;
+  max-height: 720px;
   left: 50%;
   top: 50%;
   z-index: 3;
@@ -25,11 +27,11 @@
 
 .ImageModal--closeModal {
   position: fixed;
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   /* left: 50%; */
-  right: 1%;
-  top: 8%;
+  left: 94%;
+  top: 3%;
   z-index: 30;
   /* background-color: yellow; */
   color: white;
@@ -41,6 +43,10 @@
   animation: fadeIn 0.4s;
   cursor: pointer;
   user-select: none;
+}
+
+.ImageModal--closeModal img {
+  width: 100%;
 }
 
 .ImageModal--modal--close,
@@ -109,4 +115,20 @@
 
 .zoomOut {
   animation-name: zoomOut;
+}
+
+.NextPrevImage img {
+  width: auto;
+  max-width: 100%;
+  border: none;
+  box-shadow: 0 0 0;
+}
+
+@media (min-width: 1024px) {
+  .ImageModal--closeModal {
+    width: 60px;
+    height: 60px;
+    left: 97%;
+    top: 6%;
+  }
 }

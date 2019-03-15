@@ -39,20 +39,18 @@ export default class About extends Component {
     return (
       <div className="About--container">
         <h1 className="About--header">Lorem ipsum dolor sit amet</h1>
-        <img
-          src={`${process.env.REACT_APP_IMAGES_URL}about_img01.jpg`}
-          alt="about_img01"
-          width="1280"
-          height="720"
-          className="image0"
-          onClick={() =>
-            this.handleClick(
-              `${process.env.REACT_APP_IMAGES_URL}about_img01.jpg`
-            )
-          }
-        />
-        <br />
-        <br />
+        <div className="About--imageContainer">
+          <img
+            src={`${process.env.REACT_APP_IMAGES_URL}about_img01.jpg`}
+            alt="About--image1"
+            className="About--image1"
+            onClick={() =>
+              this.handleClick(
+                `${process.env.REACT_APP_IMAGES_URL}about_img01.jpg`
+              )
+            }
+          />
+        </div>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod sunt non
           aperiam praesentium voluptatum numquam dignissimos deleniti vel atque
@@ -72,16 +70,18 @@ export default class About extends Component {
           repellendus, itaque ut porro assumenda harum nemo voluptatem officiis
           dolor in, voluptates voluptatum?
         </p>
-        <img
-          src={`${process.env.REACT_APP_IMAGES_URL}about_img02.jpg`}
-          alt="about_img02"
-          className="image1"
-          onClick={() =>
-            this.handleClick(
-              `${process.env.REACT_APP_IMAGES_URL}about_img02.jpg`
-            )
-          }
-        />
+        <div className="About--imageContainer About--secondImage">
+          <img
+            src={`${process.env.REACT_APP_IMAGES_URL}about_img02.jpg`}
+            alt="About--image2"
+            className="About--image2"
+            onClick={() =>
+              this.handleClick(
+                `${process.env.REACT_APP_IMAGES_URL}about_img02.jpg`
+              )
+            }
+          />
+        </div>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. At
           recusandae corrupti dolores error itaque dolorem odio eum expedita
@@ -144,16 +144,18 @@ export default class About extends Component {
           similique, placeat, ab quibusdam eveniet quod consequuntur iure
           necessitatibus labore delectus quam inventore fugiat debitis.
         </p>
-        <img
-          src={`${process.env.REACT_APP_IMAGES_URL}about_img03.jpg`}
-          alt="about_img03"
-          className="image2"
-          onClick={() =>
-            this.handleClick(
-              `${process.env.REACT_APP_IMAGES_URL}about_img03.jpg`
-            )
-          }
-        />
+        <div className="About--imageContainer About--thirdImage">
+          <img
+            src={`${process.env.REACT_APP_IMAGES_URL}about_img03.jpg`}
+            alt="About--image3"
+            className="About--image3"
+            onClick={() =>
+              this.handleClick(
+                `${process.env.REACT_APP_IMAGES_URL}about_img03.jpg`
+              )
+            }
+          />
+        </div>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
           fugiat, voluptates soluta dolore quod cupiditate quam architecto earum

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import NextIcon from "./next.svg";
+import PrevIcon from "./prev.svg";
 import "./NextPrevImage.css";
 
 export default class NextPrevImage extends Component {
@@ -17,7 +19,7 @@ export default class NextPrevImage extends Component {
           }`}
           onClick={() => this.handleClick(imageIndex - 1)}
         >
-          &lt;
+          <img src={PrevIcon} alt="Previous" />
         </div>
         <div
           className={`NextPrevImage NextPrevImage--next${
@@ -28,7 +30,7 @@ export default class NextPrevImage extends Component {
           }`}
           onClick={() => this.handleClick(imageIndex + 1)}
         >
-          &gt;
+          <img src={NextIcon} alt="Next" />
         </div>
       </>
     );

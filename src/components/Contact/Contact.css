@@ -1,4 +1,4 @@
-.Contact--container {
+/* .Contact--container {
   position: relative;
   right: 80px;
   height: 100%;
@@ -62,4 +62,75 @@
 
 .Contact--links--header {
   padding-left: 30px;
+} */
+
+.Contact--container {
+  box-sizing: border-box;
+  width: 90%;
+  margin: 50px 10px;
+  background-color: #fcfcfc;
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1em;
+  line-height: 1.375;
+  letter-spacing: 1px;
+  border-radius: 25px;
+  padding: 26px 25px;
+}
+
+.Contact--profilePic {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.Contact--profilePic img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.Contact--form {
+  box-sizing: border-box;
+  width: 100%;
+  display: block;
+}
+
+.Contact--links--columns {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (min-width: 1024px) {
+  .Contact--container {
+    display: grid;
+    grid-template-areas:
+      "profilePic    links   phone"
+      "profilePic    form    form"
+      "info          form    form";
+    grid-gap: 10px;
+  }
+
+  .Contact--profilePic {
+    grid-area: profilePic;
+  }
+
+  .Contact--info {
+    grid-area: info;
+  }
+
+  .Contact--links {
+    grid-area: links;
+    margin: 0 15px;
+  }
+
+  .Contact--phone {
+    grid-area: phone;
+  }
+
+  .Contact--form {
+    grid-area: form;
+    margin: 0 15px;
+  }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Img from "react-image";
+import CloseIcon from "./close.svg";
 import "./ImageModal.css";
 
 export default class ImageModal extends Component {
@@ -57,7 +58,7 @@ export default class ImageModal extends Component {
             modalClose ? " ImageModal--closeModal--close" : ""
           }`}
         >
-          X
+          <img src={CloseIcon} alt="Close" />
         </div>
       </>
     );
