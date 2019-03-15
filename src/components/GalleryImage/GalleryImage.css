@@ -1,6 +1,10 @@
-.GalleryImage--image {
-  width: 384px;
-  height: 216px;
+/* .GalleryImage--image {
+  display: block;
+  box-sizing: border-box; */
+/* width: 384px; */
+/* width: 290px; */
+/* height: 216px; */
+/* height: auto;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
   border: 1px solid black;
   border-radius: 5px;
@@ -16,4 +20,4 @@
 .GalleryImage--image:hover {
   transform: scale(1.05);
   opacity: 1;
-}
+} */

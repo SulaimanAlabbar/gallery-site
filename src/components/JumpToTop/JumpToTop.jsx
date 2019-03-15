@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import "./JumpToTop.css";
+import JumpToTopIcon from "./jtt.svg";
 
 class JumpToTop extends Component {
   handleClick = () => {
@@ -22,13 +23,13 @@ class JumpToTop extends Component {
         : "visible";
 
     return (
-      <div
-        className="JumpToTop--container"
+      <img
         onClick={this.handleClick}
         style={{ visibility }}
-      >
-        <p className="JumpToTop--arrow">^</p>
-      </div>
+        src={JumpToTopIcon}
+        alt="Jump to Top Icon"
+        className="JumpToTop--container"
+      />
     );
   }
 }

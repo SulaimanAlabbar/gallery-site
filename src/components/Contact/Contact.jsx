@@ -65,25 +65,25 @@ export default class Contact extends Component {
         <div className="Contact--links">
           <h2 className="Contact--links--header">Links</h2>
           <div className="Contact--links--columns">
-            <ul className="Contact--links--list firstColumn">
-              <li className="Contact--links--list--item">
+            <ul>
+              <li>
                 <a href="https://facebook.com">Facebook</a>
               </li>
-              <li className="Contact--links--list--item">
+              <li>
                 <a href="https://Twitter.com">Twitter</a>
               </li>
-              <li className="Contact--links--list--item">
+              <li>
                 <a href="https://Instagram.com">Instagram</a>
               </li>
-              <li className="Contact--links--list--item">
+              <li>
                 <a href="https://Flicker.com">Flicker</a>
               </li>
             </ul>
-            <ul className="Contact--links--list secondColumn">
-              <li className="Contact--links--list--item">
+            <ul>
+              <li>
                 <a href="https://LinkedIn.com">LinkedIn</a>
               </li>
-              <li className="Contact--links--list--item">
+              <li>
                 <a href="https://Youtube.com">Youtube</a>
               </li>
             </ul>

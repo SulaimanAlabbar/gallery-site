@@ -1,4 +1,4 @@
-.Form--container {
+/* .Form--container {
   height: 100%;
   width: 100%;
   display: grid;
@@ -36,8 +36,6 @@
   padding: 12px 18px;
   border: none;
   border-radius: 3px;
-  /* height: 30px;
-  width: 60px; */
   cursor: pointer;
   transform: scale(1);
   background-color: rgb(67, 113, 91);
@@ -74,4 +72,78 @@
   padding: 12px 18px;
   border: none;
   border-radius: 3px;
+} */
+
+.Form--container {
+  box-sizing: border-box;
+  width: 100%;
+  display: grid;
+  grid-template-areas:
+    "email     submit"
+    "message   message";
+  grid-gap: 5px;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) minmax(0, 4fr);
+}
+
+.Form--email {
+  box-sizing: border-box;
+  grid-area: email;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.Form--message {
+  box-sizing: border-box;
+  grid-area: message;
+  resize: none;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.Form--submit {
+  border: 1px solid black;
+  box-sizing: border-box;
+  grid-area: submit;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  color: white;
+  box-shadow: 0 0 4px #999;
+  border: none;
+  border-radius: 3px;
+  transform: scale(1);
+  background-color: rgb(67, 113, 91);
+  transition: background-color 0.1s, transform 0.25s;
+}
+
+.Form--submit:active {
+  cursor: pointer;
+  transform: scale(0.95);
+  background-color: rgb(97, 165, 132);
+}
+
+@media (min-width: 1024px) {
+  .Form--email {
+    font-size: 1.1em;
+  }
+
+  .Form--message {
+    font-size: 1.1em;
+  }
+  .Form--submit {
+    font-size: 1.1em;
+  }
+  .Form--submit:hover {
+    cursor: pointer;
+    transform: scale(1.025);
+    background-color: rgb(84, 143, 114);
+  }
+  .Form--submit:active {
+    cursor: pointer;
+    transform: scale(0.975);
+    background-color: rgb(97, 165, 132);
+  }
 }
