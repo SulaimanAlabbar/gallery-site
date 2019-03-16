@@ -1,5 +1,5 @@
 /node_modules/
 /.env
 /build
-/src/Gallery/galleryImages.json
+/src/components/Gallery/galleryImages.json
 /nginx.conf
