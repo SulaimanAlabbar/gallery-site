@@ -36,7 +36,7 @@
   .Navbar--list {
     width: 13vmax;
     cursor: pointer;
-    margin-bottom: 350px;
+    margin-bottom: 150px;
   }
 
   .Navbar--item {
@@ -64,5 +64,17 @@
   }
   .Navbar--item--selected:active {
     background-color: rgba(120, 200, 150, 0.9);
+  }
+}
+
+@media (min-width: 1500px) {
+  .Navbar--list {
+    margin-bottom: 250px;
+  }
+}
+
+@media (min-width: 1700px) {
+  .Navbar--list {
+    margin-bottom: 350px;
   }
 }
