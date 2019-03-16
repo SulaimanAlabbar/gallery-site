@@ -1,82 +1,5 @@
-/* .Form--container {
-  height: 100%;
-  width: 100%;
-  display: grid;
-  grid-template-areas:
-    "email     email    submit"
-    "message   message  message";
-  grid-gap: 10px;
-  grid-template-columns: auto auto 100px;
-  grid-template-rows: 53px 200px;
-  font-size: 24px;
-}
-.Form--email {
-  grid-area: email;
-  font-size: 24px;
-  padding: 0 10px;
-}
-
-.Form--message {
-  grid-area: message;
-  font-size: 24px;
-  resize: none;
-  padding: 10px 10px 0;
-}
-
-.Form--submit {
-  grid-area: submit;
-  font-size: 24px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  cursor: pointer;
-  user-select: none;
-  color: white;
-  box-shadow: 0 0 4px #999;
-  padding: 12px 18px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  transform: scale(1);
-  background-color: rgb(67, 113, 91);
-  transition: background-color 0.1s, transform 0.25s;
-}
-.Form--submit:hover {
-  cursor: pointer;
-  transform: scale(1.05);
-  background-color: rgb(84, 143, 114);
-}
-.Form--submit:active {
-  cursor: pointer;
-  transform: scale(0.95);
-  background-color: rgb(97, 165, 132);
-}
-
-.Form--modal {
-  position: fixed;
-  background-color: rgb(67, 113, 91);
-  height: 100px;
-  width: 200px;
-  z-index: 10;
-  top: 370px;
-  right: 600px;
-  color: white;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  user-select: none;
-  color: white;
-  box-shadow: 0 0 4px #999;
-  padding: 12px 18px;
-  border: none;
-  border-radius: 3px;
-} */
-
 .Form--container {
   box-sizing: border-box;
-  width: 100%;
   display: grid;
   grid-template-areas:
     "email     submit"
@@ -84,6 +7,8 @@
   grid-gap: 5px;
   grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
   grid-template-rows: minmax(0, 1fr) minmax(0, 4fr);
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.1rem;
 }
 
 .Form--email {
@@ -91,6 +16,8 @@
   grid-area: email;
   border: 1px solid black;
   padding: 5px;
+  font-size: inherit;
+  font-family: inherit;
 }
 
 .Form--message {
@@ -99,6 +26,8 @@
   resize: none;
   border: 1px solid black;
   padding: 5px;
+  font-size: inherit;
+  font-family: inherit;
 }
 
 .Form--submit {
@@ -114,27 +43,51 @@
   box-shadow: 0 0 4px #999;
   border: none;
   border-radius: 3px;
+  font-size: inherit;
+  font-family: inherit;
   transform: scale(1);
   background-color: rgb(67, 113, 91);
-  transition: background-color 0.1s, transform 0.25s;
+  transition: background-color 0.1s;
 }
 
 .Form--submit:active {
   cursor: pointer;
-  transform: scale(0.95);
   background-color: rgb(97, 165, 132);
+}
+
+.Form--submit--message {
+  display: block;
+  height: auto;
+  width: 25vmax;
+  min-height: 5vmax;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 1);
+  padding: 5px;
+}
+
+.Form--success {
+  background-color: rgb(67, 113, 91);
+  color: white;
+}
+
+.Form--error {
+  background-color: rgb(153, 28, 28);
+  color: white;
 }
 
 @media (min-width: 1024px) {
   .Form--email {
-    font-size: 1.1em;
+    box-sizing: border-box;
   }
 
   .Form--message {
-    font-size: 1.1em;
+    box-sizing: border-box;
   }
   .Form--submit {
-    font-size: 1.1em;
+    box-sizing: border-box;
+    transition: background-color 0.1s, transform 0.25s;
   }
   .Form--submit:hover {
     cursor: pointer;
@@ -143,7 +96,7 @@
   }
   .Form--submit:active {
     cursor: pointer;
-    transform: scale(0.975);
+    transform: scale(1);
     background-color: rgb(97, 165, 132);
   }
 }

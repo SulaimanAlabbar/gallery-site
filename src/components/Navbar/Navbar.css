@@ -5,15 +5,17 @@
   backface-visibility: hidden;
   user-select: none;
   text-align: center;
+  margin-bottom: 50px;
   font-size: 24px;
 }
+
 .Navbar--item {
   display: block;
   box-sizing: border-box;
   background-color: rgba(120, 200, 150, 0.5);
   color: white;
   text-decoration: none;
-  transition: background-color 0.1s, transform 0.25s;
+  transition: background-color 0.1s;
   padding: 12px 18px;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 1);
 }
@@ -25,26 +27,23 @@
 .Navbar--item--selected {
   background-color: rgba(120, 200, 150, 0.9);
 }
-.Navbar--item--selected:hover {
-  background-color: rgba(120, 200, 150, 0.9);
-}
+
 .Navbar--item--selected:active {
   background-color: rgba(120, 200, 150, 0.9);
 }
 
 @media (min-width: 1024px) {
   .Navbar--list {
-    flex: 1;
-    width: 150px;
-    top: 200px;
-    position: fixed;
+    width: 13vmax;
     cursor: pointer;
+    margin-bottom: 350px;
   }
 
   .Navbar--item {
     border: none;
     border-radius: 3px;
     box-shadow: 0 0 4px #999;
+    transition: background-color 0.1s, transform 0.25s;
   }
 
   .Navbar--item:hover {
@@ -65,11 +64,5 @@
   }
   .Navbar--item--selected:active {
     background-color: rgba(120, 200, 150, 0.9);
-  }
-}
-
-@media (min-width: 1440px) {
-  .Navbar--list {
-    width: 200px;
   }
 }

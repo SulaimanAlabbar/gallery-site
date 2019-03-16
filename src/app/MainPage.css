@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -7,6 +9,8 @@ html {
   width: 100%;
 }
 body {
+  height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -16,30 +20,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #0f1a20;
   color: white;
-  height: 100%;
-  width: 100%;
   font-size: 16px;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
 
-/* p {
-  word-wrap: break-word;
-  word-break: break-all;
-} */
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+img {
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .hidden {
   visibility: hidden;
-}
-
-.blur {
-  -webkit-filter: blur(10px);
-  filter: blur(10px);
 }
 
 .MainPage--container {
@@ -49,53 +42,59 @@ code {
 }
 
 .MainPage--Logo {
-  display: block;
-  text-align: center;
-  font-size: 24px;
-}
-
-.MainPage--Main {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  box-sizing: border-box;
-  width: 100%;
+  font-size: 1.5rem;
+  margin: 50px 0;
+  user-select: none;
 }
 
-.MainPage--JumpToTop {
-  display: none;
+.MainPage--Main {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+@media (min-width: 768px) {
+  .MainPage--Logo {
+    font-size: 2rem;
+  }
 }
 
 @media (min-width: 1024px) {
   .MainPage--container {
     display: grid;
     grid-template-areas:
-      ".        logo ."
-      "navbar   main ."
-      "jump     main .";
+      ".        logo"
+      "navjump  main";
     grid-gap: 10px;
-    grid-template-columns: 1fr 5fr auto;
+    grid-template-columns: 1fr 5fr;
   }
 
   .MainPage--Logo {
     grid-area: logo;
+    font-size: 2.5rem;
   }
 
-  .MainPage--Navbar {
-    grid-area: navbar;
+  .MainPage--navjump {
+    grid-area: navjump;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
   }
 
-  .MainPage--JumpToTop {
-    grid-area: jump;
+  .Navjump--container {
+    grid-area: navjump;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    position: fixed;
   }
 
   .MainPage--Main {

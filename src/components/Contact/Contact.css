@@ -1,115 +1,63 @@
-/* .Contact--container {
-  position: relative;
-  right: 80px;
-  height: 100%;
-  width: 105%;
-  background-color: #fcfcfc;
-  color: black;
-  font-family: "Open Sans", sans-serif;
-  font-size: 16pt;
-  line-height: 1.375;
-  letter-spacing: 1px;
-  word-wrap: overflow;
-  border-radius: 25px;
-  padding: 20px 30px 20px;
-  display: grid;
-  grid-template-areas:
-    "profilePic    links   phone"
-    "profilePic    form    form"
-    "info          form    form";
-  grid-gap: 10px;
-  grid-template-columns: 820px auto;
-}
-
-.Contact--profilePic {
-  grid-area: profilePic;
-}
-
-.Contact--info {
-  grid-area: info;
-  position: relative;
-  bottom: 25px;
-  padding-right: 40px;
-}
-
-.Contact--links {
-  grid-area: links;
-}
-
-.Contact--phone {
-  grid-area: phone;
-}
-
-.Contact--form {
-  grid-area: form;
-}
-
-.Contact--links--columns {
-  display: flex;
-  flex-direction: row;
-}
-
-.Contact--links--list {
-  width: 150px;
-}
-
-.firstColumn {
-  order: 1;
-}
-.secondColumn {
-  order: 2;
-}
-
-.Contact--links--header {
-  padding-left: 30px;
-} */
-
 .Contact--container {
   box-sizing: border-box;
   width: 90%;
-  margin: 50px 10px;
   background-color: #fcfcfc;
   color: black;
   font-family: "Open Sans", sans-serif;
-  font-size: 1em;
+  font-size: 1rem;
   line-height: 1.375;
   letter-spacing: 1px;
   border-radius: 25px;
-  padding: 26px 25px;
+  padding: 25px;
 }
 
 .Contact--profilePic {
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin: 10px 0;
 }
 
 .Contact--profilePic img {
+  box-sizing: border-box;
   width: 100%;
   height: auto;
   display: block;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.5);
+}
+
+.Contact--info h2,
+.Contact--links h2,
+.Contact--phone h3 {
+  padding: 10px 0;
+}
+
+.Contact--links li {
+  padding: 3px 0;
 }
 
 .Contact--form {
   box-sizing: border-box;
   width: 100%;
   display: block;
-}
-
-.Contact--links--columns {
-  display: flex;
-  flex-direction: row;
+  margin: 10px 0;
 }
 
 @media (min-width: 1024px) {
   .Contact--container {
+    box-sizing: border-box;
+    width: 95%;
     display: grid;
     grid-template-areas:
       "profilePic    links   phone"
       "profilePic    form    form"
       "info          form    form";
     grid-gap: 10px;
+    grid-template-columns: 3fr 1fr 1fr;
   }
 
   .Contact--profilePic {
@@ -122,7 +70,7 @@
 
   .Contact--links {
     grid-area: links;
-    margin: 0 15px;
+    margin: 0 40px;
   }
 
   .Contact--phone {
@@ -131,6 +79,6 @@
 
   .Contact--form {
     grid-area: form;
-    margin: 0 15px;
+    padding: 15px;
   }
 }

@@ -1,27 +1,23 @@
-/* .JumpToTop--container {
-
-  position: fixed;
-  bottom: 80px;
-
-  
-} */
-
 .JumpToTop--container {
-  position: fixed;
-  bottom: 80px;
+  display: none;
   width: auto;
   max-width: 100px;
   cursor: pointer;
-  user-select: none;
-  border: none !important;
-  box-shadow: 0 0 0;
-  transition: background-color 0.1s, transform 0.2s;
+  border: none;
+  box-shadow: none;
+  transition: transform 0.2s;
 }
 
-.JumpToTop--container:hover {
-  transform: translateY(10px);
-}
+@media (min-width: 1024px) {
+  .JumpToTop--container {
+    display: block;
+  }
 
-.JumpToTop--container:active {
-  transform: translateY(-5px);
+  .JumpToTop--container:hover {
+    transform: translateY(10px);
+  }
+
+  .JumpToTop--container:active {
+    transform: translateY(-5px);
+  }
 }

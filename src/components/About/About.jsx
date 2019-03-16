@@ -6,7 +6,8 @@ export default class About extends Component {
   _mounted = false;
 
   state = {
-    selectedImage: false
+    modalOpen: false,
+    selectedImage: null
   };
 
   componentDidMount = () => {
@@ -18,23 +19,31 @@ export default class About extends Component {
   };
 
   handleClick = image => {
+    const img = { ...image };
+
     if (!this._mounted) return;
 
-    this.setState({
-      selectedImage: image
-    });
+    this.setState(state => ({
+      modalOpen: !state.modalOpen,
+      selectedImage: [
+        {
+          full: img.target.src
+        }
+      ]
+    }));
   };
 
   onModalClose = () => {
     if (!this._mounted) return;
 
     this.setState({
-      selectedImage: false
+      modalOpen: false,
+      selectedImage: null
     });
   };
 
   render() {
-    const { selectedImage } = this.state;
+    const { modalOpen, selectedImage } = this.state;
 
     return (
       <div className="About--container">
@@ -44,11 +53,7 @@ export default class About extends Component {
             src={`${process.env.REACT_APP_IMAGES_URL}about_img01.jpg`}
             alt="About--image1"
             className="About--image1"
-            onClick={() =>
-              this.handleClick(
-                `${process.env.REACT_APP_IMAGES_URL}about_img01.jpg`
-              )
-            }
+            onClick={this.handleClick}
           />
         </div>
         <p>
@@ -70,16 +75,13 @@ export default class About extends Component {
           repellendus, itaque ut porro assumenda harum nemo voluptatem officiis
           dolor in, voluptates voluptatum?
         </p>
+        <br />
         <div className="About--imageContainer About--secondImage">
           <img
             src={`${process.env.REACT_APP_IMAGES_URL}about_img02.jpg`}
             alt="About--image2"
             className="About--image2"
-            onClick={() =>
-              this.handleClick(
-                `${process.env.REACT_APP_IMAGES_URL}about_img02.jpg`
-              )
-            }
+            onClick={this.handleClick}
           />
         </div>
         <p>
@@ -101,6 +103,7 @@ export default class About extends Component {
           officiis reprehenderit officia saepe fugiat. Voluptates ducimus cumque
           minima illum, rerum nihil fugit omnis.
         </p>
+        <br />
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod velit
           eveniet natus veniam laborum. Accusantium vel similique cumque
@@ -144,16 +147,13 @@ export default class About extends Component {
           similique, placeat, ab quibusdam eveniet quod consequuntur iure
           necessitatibus labore delectus quam inventore fugiat debitis.
         </p>
+        <br />
         <div className="About--imageContainer About--thirdImage">
           <img
             src={`${process.env.REACT_APP_IMAGES_URL}about_img03.jpg`}
             alt="About--image3"
             className="About--image3"
-            onClick={() =>
-              this.handleClick(
-                `${process.env.REACT_APP_IMAGES_URL}about_img03.jpg`
-              )
-            }
+            onClick={this.handleClick}
           />
         </div>
         <p>
@@ -184,6 +184,7 @@ export default class About extends Component {
           doloribus explicabo perspiciatis earum tempore. Laborum ducimus culpa
           esse consequuntur!
         </p>
+        <br />
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. At
           recusandae corrupti dolores error itaque dolorem odio eum expedita
@@ -203,6 +204,7 @@ export default class About extends Component {
           officiis reprehenderit officia saepe fugiat. Voluptates ducimus cumque
           minima illum, rerum nihil fugit omnis.
         </p>
+        <br />
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. At
           recusandae corrupti dolores error itaque dolorem odio eum expedita
@@ -222,12 +224,9 @@ export default class About extends Component {
           officiis reprehenderit officia saepe fugiat. Voluptates ducimus cumque
           minima illum, rerum nihil fugit omnis.
         </p>
-        {selectedImage && (
-          <ImageModal
-            image={selectedImage}
-            placeholderImage={false}
-            onModalClose={this.onModalClose}
-          />
+        <br />
+        {modalOpen && (
+          <ImageModal images={selectedImage} onModalClose={this.onModalClose} />
         )}
       </div>
     );

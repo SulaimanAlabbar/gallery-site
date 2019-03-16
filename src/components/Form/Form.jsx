@@ -7,9 +7,10 @@ export default class Form extends Component {
 
   state = {
     modalVisible: false,
-    modalMessage: "",
+    modalMessage: [],
     emailValue: "",
-    messageValue: ""
+    messageValue: "",
+    formSuccess: false
   };
 
   componentDidMount = () => {
@@ -22,7 +23,7 @@ export default class Form extends Component {
 
   submitForm = () => {
     const { emailValue, messageValue } = this.state;
-    let error;
+    let error = [];
 
     if (emailValue === "" && messageValue === "") return;
 
@@ -31,29 +32,26 @@ export default class Form extends Component {
         /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       )
     )
-      error = "Erroneous email.";
+      error = ["Erroneous email."];
 
-    if (messageValue.length < 10)
-      error =
-        error === undefined
-          ? "Message too short."
-          : `${error}\nMessage too short.`;
+    if (messageValue.length < 10) error = error.concat("Message too short.");
 
     if (!this._mounted) return;
 
-    if (error === undefined) {
+    if (error.length === 0) {
       this.setState(
         {
           modalVisible: true,
-          modalMessage: "Message sent",
+          modalMessage: [],
           emailValue: "",
-          messageValue: ""
+          messageValue: "",
+          formSuccess: true
         },
         () => {
           setTimeout(() => {
             this.setState({
               modalVisible: false,
-              modalMessage: ""
+              formSuccess: false
             });
           }, 2000);
         }
@@ -62,13 +60,14 @@ export default class Form extends Component {
       this.setState(
         {
           modalVisible: true,
-          modalMessage: error
+          modalMessage: error,
+          formSuccess: false
         },
         () => {
           setTimeout(() => {
             this.setState({
               modalVisible: false,
-              modalMessage: ""
+              modalMessage: []
             });
           }, 2000);
         }
@@ -77,19 +76,27 @@ export default class Form extends Component {
   };
 
   onEmailChange = e => {
+    const ev = { ...e };
     this.setState({
-      emailValue: e.target.value
+      emailValue: ev.target.value
     });
   };
 
   onMessageChange = e => {
+    const ev = { ...e };
     this.setState({
-      messageValue: e.target.value
+      messageValue: ev.target.value
     });
   };
 
   render() {
-    const { emailValue, messageValue, modalVisible, modalMessage } = this.state;
+    const {
+      emailValue,
+      messageValue,
+      modalVisible,
+      modalMessage,
+      formSuccess
+    } = this.state;
 
     return (
       <div className="Form--container">
@@ -97,14 +104,14 @@ export default class Form extends Component {
           type="text"
           placeholder="Email"
           value={emailValue}
-          onChange={e => this.onEmailChange(e)}
+          onChange={this.onEmailChange}
           className="Form--email"
         />
         <textarea
           name="message"
           placeholder="Message"
           value={messageValue}
-          onChange={e => this.onMessageChange(e)}
+          onChange={this.onMessageChange}
           cols="30"
           rows="10"
           className="Form--message"
@@ -112,9 +119,20 @@ export default class Form extends Component {
         <div className="Form--submit" onClick={this.submitForm}>
           Send
         </div>
-        {modalVisible && <div className="Form--modal">{modalMessage}</div>}
+        {modalVisible && (
+          <div
+            className={`Form--submit--message${
+              formSuccess ? " Form--success" : " Form--error"
+            }`}
+          >
+            {formSuccess ? (
+              <h3> Message Sent. </h3>
+            ) : (
+              modalMessage.map(msg => <li key={`${msg}`}>{msg}</li>)
+            )}
+          </div>
+        )}
       </div>
     );
   }
 }
-// TODO: remove modal

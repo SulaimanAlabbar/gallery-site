@@ -18,9 +18,7 @@ class JumpToTop extends Component {
   render() {
     const { pathname } = this.props.location;
     const visibility =
-      pathname === "/slideshow" || pathname === "/contact"
-        ? "hidden"
-        : "visible";
+      pathname === "/" || pathname === "/about" ? "visible" : "hidden";
 
     return (
       <img

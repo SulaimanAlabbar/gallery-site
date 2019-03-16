@@ -14,14 +14,6 @@ function Navbar({ location: { pathname } }) {
         Gallery
       </Link>
       <Link
-        to="/slideshow"
-        className={`Navbar--item${
-          pathname === "/slideshow" ? " Navbar--item--selected" : ""
-        }`}
-      >
-        Slideshow
-      </Link>
-      <Link
         to="/about"
         className={`Navbar--item${
           pathname === "/about" ? " Navbar--item--selected" : ""

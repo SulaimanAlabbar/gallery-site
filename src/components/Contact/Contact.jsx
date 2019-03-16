@@ -8,10 +8,11 @@ export default class Contact extends Component {
   _mounted = false;
 
   state = {
-    selectedImage: false
+    modalOpen: false,
+    selectedImage: null
   };
 
-  componentDidMount = async () => {
+  componentDidMount = () => {
     this._mounted = true;
   };
 
@@ -20,23 +21,31 @@ export default class Contact extends Component {
   };
 
   handleClick = image => {
+    const img = { ...image };
+
     if (!this._mounted) return;
 
-    this.setState({
-      selectedImage: image
-    });
+    this.setState(state => ({
+      modalOpen: !state.modalOpen,
+      selectedImage: [
+        {
+          full: img.target.src
+        }
+      ]
+    }));
   };
 
   onModalClose = () => {
     if (!this._mounted) return;
 
     this.setState({
-      selectedImage: false
+      modalOpen: false,
+      selectedImage: null
     });
   };
 
   render() {
-    const { selectedImage } = this.state;
+    const { modalOpen, selectedImage } = this.state;
 
     return (
       <div className="Contact--container">
@@ -44,11 +53,7 @@ export default class Contact extends Component {
           <img
             src={`${process.env.REACT_APP_IMAGES_URL}contact_img01.jpg`}
             alt="contact_img01"
-            onClick={() =>
-              this.handleClick(
-                `${process.env.REACT_APP_IMAGES_URL}contact_img01.jpg`
-              )
-            }
+            onClick={this.handleClick}
           />
         </div>
         <div className="Contact--info">
@@ -63,31 +68,27 @@ export default class Contact extends Component {
           </p>
         </div>
         <div className="Contact--links">
-          <h2 className="Contact--links--header">Links</h2>
-          <div className="Contact--links--columns">
-            <ul>
-              <li>
-                <a href="https://facebook.com">Facebook</a>
-              </li>
-              <li>
-                <a href="https://Twitter.com">Twitter</a>
-              </li>
-              <li>
-                <a href="https://Instagram.com">Instagram</a>
-              </li>
-              <li>
-                <a href="https://Flicker.com">Flicker</a>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <a href="https://LinkedIn.com">LinkedIn</a>
-              </li>
-              <li>
-                <a href="https://Youtube.com">Youtube</a>
-              </li>
-            </ul>
-          </div>
+          <h2>Links</h2>
+          <ul>
+            <li>
+              <a href="https://facebook.com">Facebook</a>
+            </li>
+            <li>
+              <a href="https://Twitter.com">Twitter</a>
+            </li>
+            <li>
+              <a href="https://Instagram.com">Instagram</a>
+            </li>
+            <li>
+              <a href="https://Flicker.com">Flicker</a>
+            </li>
+            <li>
+              <a href="https://LinkedIn.com">LinkedIn</a>
+            </li>
+            <li>
+              <a href="https://Youtube.com">Youtube</a>
+            </li>
+          </ul>
         </div>
         <div className="Contact--phone">
           <h3>Phone</h3>
@@ -101,12 +102,8 @@ export default class Contact extends Component {
         <div className="Contact--form">
           <Form />
         </div>
-        {selectedImage && (
-          <ImageModal
-            image={selectedImage}
-            placeholderImage={false}
-            onModalClose={this.onModalClose}
-          />
+        {modalOpen && (
+          <ImageModal images={selectedImage} onModalClose={this.onModalClose} />
         )}
       </div>
     );
