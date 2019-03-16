@@ -1,0 +1,67 @@
+.About--container {
+  box-sizing: border-box;
+  width: 90%;
+  height: auto;
+  background-color: #fcfcfc;
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.375;
+  letter-spacing: 1px;
+  border-radius: 25px;
+  padding: 25px;
+}
+
+.About--header {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.About--imageContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.About--image1 {
+  width: 100%;
+  height: auto;
+  max-width: 1280px;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.5);
+  margin: 30px 0;
+}
+
+.About--image2,
+.About--image3 {
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.5);
+  margin: 20px 0;
+}
+
+@media (min-width: 1024px) {
+  .About--header {
+    font-size: 2.5rem;
+  }
+
+  .About--container {
+    width: 95%;
+  }
+
+  .About--secondImage {
+    float: right;
+    margin-left: 25px;
+  }
+
+  .About--thirdImage {
+    float: left;
+    margin-right: 25px;
+  }
+}
